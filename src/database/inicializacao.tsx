@@ -8,7 +8,7 @@ let droparTabela=0 // use 1 para apagar e refazer a tabela ou 0 para manter os d
 export default class DatabaseInit {
 
     constructor() {
-        db = Conexao.getConnection()
+        db = Conexao.getInstance().getConnection();
         db.exec([{ sql: 'PRAGMA foreign_keys = ON;', args: [] }], false, () =>
         console.log('Chaves Estrangeiras turned on')
     );
@@ -54,5 +54,7 @@ export default class DatabaseInit {
             }
         );
     }
+
+    
 
 }

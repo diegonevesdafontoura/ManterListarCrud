@@ -2,10 +2,14 @@ import { Contato } from '../model/Contato'
 import {Conexao} from '../database/conexao'
 
 const table = "contato"
-const db=Conexao.getConnection()
+//const dbi = Conexao.getInstance();
+const db = Conexao.getInstance().getConnection();
+
+// const db=Conexao.getConnection()
 
 export default class ContatoServico {
      static addData(param: Contato) {
+       
         return new Promise((resolve, reject) =>db.transaction(
             tx => {
                 tx.executeSql(`insert into ${table} (nome,email,natural) 
@@ -36,7 +40,8 @@ export default class ContatoServico {
 
      static updateByObjeto(param: Contato) {
         return new Promise((resolve, reject) =>db.transaction(tx => {
-                tx.executeSql(`update ${table} set nome = ? , email = ? , natural = ?  where id = ?;`, [param.nome,param.email,param.natural, param.id], () => {
+                tx.executeSql(`update ${table} set nome = ? , email = ? , natural = ?  where id = ?;`, [param.nome,param.email,param.natural, param.id],  (_, { rows }) => {
+                    resolve(rows)
                 }), (sqlError) => {
                     console.log(sqlError);
                 }}, (txError) => {

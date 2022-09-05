@@ -4,23 +4,21 @@ import { Button, View } from 'react-native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 
-import Escrever from './src/screens/Escrever'
+
+import Manter from './src/screens/Manter'
 import Listar from './src/screens/Listar'
-import ListarComFiltro from './src/screens/ListarComFiltro'
-import ListarComFiltroContatos from './src/screens/ListarComFiltroContatos'
+
+
 
 import DatabaseInit from './src/database/inicializacao';
 
 
 
-
-
-function EscreverScreen({ navigation }) {
+function ManterScreen({ navigation }) {
   return (
-    <Escrever></Escrever>
+    <Manter></Manter>
   );
 }
-
 
 function ListarScreen({ navigation }) {
   return (
@@ -29,17 +27,6 @@ function ListarScreen({ navigation }) {
 }
 
 
-function ListaComFiltroScreen({ navigation }) {
-  return (
-    <ListarComFiltro></ListarComFiltro>
-  );
-}
-
-function ListarComFiltroContatosScreen({ navigation }) {
-  return (
-    <ListarComFiltroContatos></ListarComFiltroContatos>
-  );
-}
 
 
 const Drawer = createDrawerNavigator();
@@ -53,13 +40,12 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Drawer.Navigator initialRouteName="Home">
-        {/* <Drawer.Screen name="Home" component={HomeScreen} />
-        <Drawer.Screen name="Notifications" component={NotificationsScreen} /> */}
-        <Drawer.Screen name="Escrever" component={EscreverScreen} />
+      <Drawer.Navigator initialRouteName="Manter">
+      
+        <Drawer.Screen name="Manter" component={ManterScreen} />
+        
         <Drawer.Screen name="Listar" component={ListarScreen} />
-        <Drawer.Screen name="Lista Com Filtro Contatos" component={ListarComFiltroContatosScreen} />
-        <Drawer.Screen name="Lista Com Filtro" component={ListaComFiltroScreen} />
+        
       </Drawer.Navigator>
     </NavigationContainer>
   );

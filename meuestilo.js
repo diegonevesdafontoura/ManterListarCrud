@@ -6,20 +6,21 @@ export default StyleSheet.create({
         alignItems: 'center',
       },
       inputContainer: {
-        width: '80%'
+        width: '100%',
       },
+
       input: {
         backgroundColor: 'white',
         paddingHorizontal: 15,
         paddingVertical: 10,
         borderRadius: 10,
-        marginTop: 5,
+        marginTop: 2,
       },
       buttonContainer: {
-        width: '60%',
+        width: '100%',
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 40,
+        marginTop: 10,
       },
       button: {
         backgroundColor: '#0782F9',
@@ -27,10 +28,12 @@ export default StyleSheet.create({
         padding: 15,
         borderRadius: 10,
         alignItems: 'center',
+        marginTop: 2,
       },
       buttonOutline: {
+        padding: 15,
         backgroundColor: 'white',
-        marginTop: 5,
+        marginTop: 2,
         borderColor: '#0782F9',
         borderWidth: 2,
       },
