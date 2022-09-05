@@ -1,6 +1,6 @@
 import React ,{useState, useEffect} from 'react'
 import {ActivityIndicator, SafeAreaView, View, FlatList,  Text, StatusBar } from 'react-native';
-import { auth,firestore } from '../../firebase'
+
 import MeuEstilo from '../../meuestilo';
 import  { Contato } from '../model/Contato'
 import ContatoServico from '../service/contato_servico';
